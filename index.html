@@ -23,6 +23,31 @@
     <h3><b>Ofcourse!</b></h3>
     <div class="fb-comments" data-href="https://www.facebook.com/ehsahil/posts/2374070949340331" data-width="100" data-numposts="1000"></div>
     
+    <br>
+<h3> Comments : </h3><br>
+<div id="comments"></div>
+<br>
+<h3>Add a comment </h3>
+<iframe style="display:none" name="hidden-form"></iframe>  
+<form action="https://rce.ee/dhhascomments.php" target="hidden-form" method="GET" >
+    <input type="text" name="comment">
+    <input type="submit" name="Add comment">
+</form>
+<script>
+//fetch comments
+function fetchcomments() { 
+    document.getElementById("comments").innerText = "";
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("comments").innerText = xhttp.responseText;
+        }
+    };
+    xhttp.open("GET", "https://rce.ee/dhhascomments.php?view=1", true);
+    xhttp.send();
+}
+fetchcomments();
+</script>
     
     </center>
     
